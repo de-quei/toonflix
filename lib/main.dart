@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,19 +12,22 @@ void main() {
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       home: Scaffold(
-          backgroundColor: Color(0xFF181818),
+          backgroundColor: const Color(0xFF181818),
           body: Padding(
-            padding: EdgeInsets.symmetric(
+            padding: const EdgeInsets.symmetric(
               horizontal: 40,
             ),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              // 자식 요소를 위아래로 배치하고 싶을 땐 Column
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 80,
                 ),
                 Row(
+                  // 자식 요소를 옆에 놓고 싶을 땐 Row
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Column(
@@ -38,11 +43,50 @@ class App extends StatelessWidget {
                         Text(
                           'Welcome back',
                           style: TextStyle(
-                            color: Colors.white,
+                            color: Colors.white.withOpacity(0.8),
                             fontSize: 18,
                           ),
                         ),
                       ],
+                    )
+                  ],
+                ),
+                const SizedBox(
+                  height: 120,
+                ),
+                const Text('Total Balance',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 22,
+                    )),
+                const SizedBox(
+                  height: 10,
+                ),
+                const Text('\$5 194 482',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 44,
+                        fontWeight: FontWeight.w600)),
+                const SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.amber,
+                        borderRadius: BorderRadius.circular(45),
+                      ),
+                      child: const Padding(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 15, horizontal: 50),
+                        child: Text(
+                          'Transfer',
+                          style: TextStyle(
+                            fontSize: 22,
+                          ),
+                        ),
+                      ),
                     )
                   ],
                 )
